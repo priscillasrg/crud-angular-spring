@@ -17,14 +17,14 @@ export class CoursesComponent implements OnInit {
   // courses: Course[] = [{ _id: '1', name: 'Angular', category: 'front-end'}];
   displayedColumns = ['name', 'category'];
   // coursesService: CoursesService;
-  courses: Observable <Course[]>;
+  courses$: Observable <Course[]>;
 
 
   constructor(private coursesService: CoursesService) {
     // this.courses = []  2a alternativa p/ inicializar array
     // this.coursesService = new CoursesService(); - instancia de classe
     // this.courses = this.coursesService.list() - posso instanciar aqui ou no onInit quando não estiver tipado
-    this.courses = this.coursesService.list()
+    this.courses$ = this.coursesService.list()
    }
 
   ngOnInit(): void {
