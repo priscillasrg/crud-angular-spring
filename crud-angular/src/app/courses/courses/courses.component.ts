@@ -22,10 +22,11 @@ export class CoursesComponent implements OnInit {
   constructor(private coursesService: CoursesService) {
     // this.courses = []  2a alternativa p/ inicializar array
     // this.coursesService = new CoursesService(); - instancia de classe
-    this.courses = this.coursesService.list()
+    // this.courses = this.coursesService.list() - posso instanciar aqui ou no onInit
    }
 
   ngOnInit(): void {
+    this.courses = this.coursesService.list()
   }
 
 
