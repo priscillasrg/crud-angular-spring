@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Course } from '../model/course';
 
 
@@ -13,20 +14,20 @@ import { CoursesService } from '../services/courses.service';
 export class CoursesComponent implements OnInit {
 
   //Inicializar array com = [] ao invés de inserir no construtor
-  courses: Course[] = [{ _id: '1', name: 'Angular', category: 'front-end'}];
+  // courses: Course[] = [{ _id: '1', name: 'Angular', category: 'front-end'}];
   displayedColumns = ['name', 'category'];
   // coursesService: CoursesService;
-
+  courses: Observable <Course[]>;
 
 
   constructor(private coursesService: CoursesService) {
     // this.courses = []  2a alternativa p/ inicializar array
     // this.coursesService = new CoursesService(); - instancia de classe
-    // this.courses = this.coursesService.list() - posso instanciar aqui ou no onInit
+    // this.courses = this.coursesService.list() - posso instanciar aqui ou no onInit quando não estiver tipado
+    this.courses = this.coursesService.list()
    }
 
   ngOnInit(): void {
-    this.courses = this.coursesService.list()
   }
 
 
