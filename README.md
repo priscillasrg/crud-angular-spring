@@ -2,7 +2,7 @@
 
 
 ## Angular
-* VsCode  
+* VsCode plus extension: Angular Extension Pack
 * npm install  
 * npm run start  
 
