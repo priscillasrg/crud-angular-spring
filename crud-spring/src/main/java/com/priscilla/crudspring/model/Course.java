@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 // @Getter
@@ -16,6 +18,7 @@ import lombok.Data;
 public class Course {
     @Id    
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @JsonProperty("_id")
     private Long id;
     
     // @Column(name = "nome")
