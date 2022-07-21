@@ -26,13 +26,11 @@ export class CoursesComponent implements OnInit {
        this.onError('Erro ao carregar cursos.');
         return of([])
       })
-    )
-
-  }
+  )}
 
   ngOnInit(): void {
-  }
-
+}
+  
 
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
