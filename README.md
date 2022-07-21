@@ -1,13 +1,15 @@
 # CRUD - Angular with Spring
 
-VSCode
 
 ## Angular
-npm install  
-npm run start  
+* VsCode  
+* npm install  
+* npm run start  
 
 ## Spring
-Postman  
+* VsCode plus extensions: Extension Pack for Java, Spring Boot Extension Pack, Tomcat for Java, XML, Lombok, SonarLint, Checkstyle for Java, Docker  
+* Postman  
+
 
 
 
