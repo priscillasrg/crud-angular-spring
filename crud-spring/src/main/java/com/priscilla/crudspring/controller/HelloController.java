@@ -11,7 +11,7 @@ public class HelloController {
     @GetMapping
     // @RequestMapping(method = {RequestMethod.GET}, produces = )
     public String hello() {
-        return "Hello, World";
+        return "Hello, World!";
     }
 
 }
