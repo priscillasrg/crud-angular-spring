@@ -10,5 +10,3 @@ public interface CourseRepository extends JpaRepository<Course, Long>{
     
 }
 
-
-// Repository declara como interface, e é possivel extender para o JPA no spring data

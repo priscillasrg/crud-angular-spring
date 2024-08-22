@@ -13,7 +13,7 @@ import { CoursesService } from '../services/courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns = ['name', 'category'];
+  displayedColumns = [ 'name', 'category'];
   courses$: Observable<Course[]>;
 
 
@@ -23,7 +23,7 @@ export class CoursesComponent implements OnInit {
     this.courses$ = this.coursesService.list() 
     .pipe(
       catchError(error => {
-       this.onError('Erro ao carregar cursos.');
+       this.onError('Error to load courses');
         return of([])
       })
   )}

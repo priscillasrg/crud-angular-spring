@@ -15,8 +15,6 @@ public class CrudSpringApplication {
 		SpringApplication.run(CrudSpringApplication.class, args);
 	}
 
-
-	//Criado mock somente para testes
 	@Bean
 	CommandLineRunner initDatabase(CourseRepository courseRepository) {
 		return args -> {
@@ -28,10 +26,8 @@ public class CrudSpringApplication {
 			courseRepository.save(c);
 		};
 	}
-
 }
 
 
 
 
-// @Bean comunica o spring para gerenciar todo o ciclo de vida. CommandLineRunner, inicia assim que a app subir
