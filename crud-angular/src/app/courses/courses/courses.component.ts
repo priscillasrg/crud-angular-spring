@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -13,14 +14,16 @@ import { CoursesService } from '../services/courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns = [ 'name', 'category'];
+  displayedColumns = [ 'name', 'category', 'actions'];
   courses$: Observable<Course[]>;
 
 
   constructor(private coursesService: CoursesService,
-               public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private router: Router,
+              private route: ActivatedRoute) {
 
-    this.courses$ = this.coursesService.list() 
+    this.courses$ = this.coursesService.getCourses() 
     .pipe(
       catchError(error => {
        this.onError('Error to load courses');
@@ -38,23 +41,10 @@ export class CoursesComponent implements OnInit {
     });
   }
 
+  onAddCourse() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
 
 }
 
-
-  // Inicializar array com = [] ao invés de inserir no construtor
- 
-  // courses: Course[] = [{ _id: '1', name: 'Angular', category: 'front-end'}];
-
-  // coursesService: CoursesService; 
-
-  // this.courses = []  2a alternativa p/ inicializar array
-
-  // this.coursesService = new CoursesService(); - instancia de classe (dentro do construtor)
-
-  // this.courses = this.coursesService.list() - posso instanciar no construtor ou no onInit quando não estiver tipado
-
-  // this.courses$ = this.coursesService.list() - forma que é declarada quando utilizado rxjs pipe first, não precisando do subscribe, 
-  // ele consegue acessar direto por esta func. O simbolo $ é só a notação para dizer que é um observable boas praticas
-  
-  
