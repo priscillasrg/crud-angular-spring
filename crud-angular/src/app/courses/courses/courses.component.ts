@@ -14,7 +14,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns = [ 'name', 'category', 'actions'];
   courses$: Observable<Course[]>;
 
 

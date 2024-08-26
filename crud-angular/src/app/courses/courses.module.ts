@@ -1,3 +1,4 @@
+import { CoursesListComponent } from './courses-list/courses-list.component';
 import { NgModule } from '@angular/core';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesRoutingModule } from './courses-routing.module';
@@ -12,7 +13,8 @@ import { CourseFormComponent } from './course-form/course-form.component';
 @NgModule({
   declarations: [
     CoursesComponent,
-    CourseFormComponent
+    CourseFormComponent, 
+    CoursesListComponent
   ],
   imports: [
     CommonModule,
