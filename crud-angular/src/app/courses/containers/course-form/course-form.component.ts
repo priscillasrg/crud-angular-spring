@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
-import { CoursesService } from '../services/courses.service';
+import { CoursesService } from '../../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 
@@ -17,10 +17,9 @@ export class CourseFormComponent implements OnInit {
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
-              private coursesService: CoursesService,
-              private snackBar: MatSnackBar,
-              private location: Location) 
-  {
+    private coursesService: CoursesService,
+    private snackBar: MatSnackBar,
+    private location: Location) {
   }
 
   ngOnInit(): void {
@@ -28,7 +27,7 @@ export class CourseFormComponent implements OnInit {
 
 
   public onSubmit() {
-    if (this.form.valid) { 
+    if (this.form.valid) {
       this.coursesService.createNewCourse(this.form.value).subscribe(
         data => this.onSuccess(),
         error => {
@@ -42,7 +41,6 @@ export class CourseFormComponent implements OnInit {
       });
     }
   }
-
 
   public onCancel() {
     this.location.back();
