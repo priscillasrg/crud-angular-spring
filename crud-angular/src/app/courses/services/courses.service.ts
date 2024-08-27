@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { delay, first, tap } from 'rxjs/operators';
 
 import { Course } from '../model/course';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,26 +15,23 @@ export class CoursesService {
   
   constructor(private httpClient: HttpClient) { }
 
-  // 1 EXEMPLO
-  // list(): Course[] {
-  //    // return [
-  //   //   { _id: '1', name: 'Angular', category: 'front-end' }
-  //   // ];
-  // }
+
   
-  list() {
+  getCourses() {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
-      // delay(5000),
+      delay(1000),
       tap(courses => console.log(courses))
     );
   }
 
-}
+  createNewCourse(course: Partial<Course>): Observable<Course> {
+    return this.httpClient.post<Course>(this.API, course)
+      .pipe(
+        first(),
+      );
+  }
 
-// operador first() - assim que vier do servidor a primeira resposta, ele já faz o subscribe automaticamente sem precisar fazer isso no TS
-// delay - serve como timeout
-// pipe ajuda a manipular antes de mandar pro servidor 
-// tap - rxjs operator 
-// take(1) - mesma função do first
+
+}
