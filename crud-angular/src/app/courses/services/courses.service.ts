@@ -12,26 +12,44 @@ export class CoursesService {
   // private readonly API = '/assets/courses.json';
   private readonly API = 'api/courses';
 
-  
+
   constructor(private httpClient: HttpClient) { }
 
 
-  
-  getCourses() {
+
+  public getCourses() {
     return this.httpClient.get<Course[]>(this.API)
-    .pipe(
-      first(),
-      delay(1000),
-      tap(courses => console.log(courses))
-    );
+      .pipe(
+        first(),
+        // delay(1000),
+        // tap(courses => console.log(courses))
+      );
   }
 
-  createNewCourse(course: Partial<Course>): Observable<Course> {
+  public createNewCourse(course: Partial<Course>): Observable<Course> {
     return this.httpClient.post<Course>(this.API, course)
       .pipe(
         first(),
       );
   }
 
+  public findCourseById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
+  public editCourse(course: Partial<Course>) {
+
+    if (course.id) {
+      return this.update(course)
+    }
+    return this.createNewCourse(course)
+  }
+
+  private update(course: Partial<Course>) {
+    return this.httpClient.put<Course>(`${this.API}/${course.id}`, course)
+      .pipe(
+        first(),
+      );
+  }
 
 }

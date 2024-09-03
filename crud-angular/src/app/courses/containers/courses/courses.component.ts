@@ -43,6 +43,18 @@ export class CoursesComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
+
+  public editCourseView(course: Course) {
+    this.router.navigate(['edit', course.id], { relativeTo: this.route });
+
+  }
+
+  public deleteCourseView(course: Course) {
+    // this.router.navigate(['delete'], { relativeTo: this.route });
+  }
+
+
+
   private handleError(errorMsg: string, error?: any): void {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
