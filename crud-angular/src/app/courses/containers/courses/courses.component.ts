@@ -26,12 +26,12 @@ export class CoursesComponent implements OnInit {
     this.loadCourses();
   }
 
-  private getCourses(): Observable<Course[]> {
+  private listCourses(): Observable<Course[]> {
     return this.courses$;
   }
 
   private loadCourses() {
-    this.courses$ = this.coursesService.getCourses().pipe(
+    this.courses$ = this.coursesService.listCourses().pipe(
       catchError(error => {
         this.handleError('Error loading courses', error);
         return of([]);
