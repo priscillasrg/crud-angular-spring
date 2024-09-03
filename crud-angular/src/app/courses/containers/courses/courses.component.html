@@ -10,8 +10,9 @@
 
       <app-courses-list *ngIf="courses$ | async as courses; else loading" 
         [courses]="courses"
-        (addNewCourseView)="navigateToNewAddCourse()">
-      </app-courses-list>
+        (addNewCourseView)="navigateToNewAddCourse()"
+        (editCourseView)="editCourseView($event)"
+        ></app-courses-list>
 
 
       <ng-template #loading>

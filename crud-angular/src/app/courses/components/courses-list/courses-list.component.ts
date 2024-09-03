@@ -11,6 +11,10 @@ export class CoursesListComponent implements OnInit {
 
   @Input() courses: Course[] = [];
   @Output() addNewCourseView = new EventEmitter<boolean>(false);
+  @Output() editCourseView = new EventEmitter<Course>();
+  @Output() deleteCourseView = new EventEmitter<Course>();
+
+
 
   readonly displayedColumns = ['name', 'category', 'actions'];
 
@@ -19,8 +23,16 @@ export class CoursesListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToNewAddCourse() {
+  public navigateToNewAddCourse() {
     this.addNewCourseView.emit(true);
+  }
+
+  public editCourse(course: Course) {
+    this.editCourseView.emit(course);
+  }
+
+  public deleteCourse(course: Course) {
+    // this.deleteCourseView.emit(course);
   }
 
 }
