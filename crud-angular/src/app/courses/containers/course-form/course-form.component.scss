@@ -3,8 +3,13 @@ mat-card {
   margin: 2em auto;
 }
 
+.mat-mdc-card-content{
+  padding: 25px;
+}
+
 .mat-full-width {
   width: 100%;
+  padding: 10px 0 0 0;
 }
 
 @media (max-width: 600px) {
