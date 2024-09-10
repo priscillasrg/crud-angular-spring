@@ -38,7 +38,7 @@ export class CourseFormComponent implements OnInit {
 
   public onSubmit() {
     if (this.form.valid) {
-      this.coursesService.createNewCourse(this.form.value).subscribe(
+      this.coursesService.saveCourse(this.form.value).subscribe(
         data => this.onSuccess(),
         error => {
           console.error('Error submitting form:', error);
