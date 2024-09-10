@@ -32,7 +32,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   public deleteCourse(course: Course) {
-    // this.deleteCourseView.emit(course);
+    this.deleteCourseView.emit(course);
   }
 
 }

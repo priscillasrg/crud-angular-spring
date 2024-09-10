@@ -4,6 +4,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { CategoryPipe } from './pipes/category.pipe';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -11,17 +12,17 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   declarations: [
     ErrorDialogComponent,
     CategoryPipe,
-    NotFoundComponent,
+    NotFoundComponent,    
   ],
   imports: [
     CommonModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ConfirmationDialogComponent
   ],
   exports: [
     ErrorDialogComponent,
     CategoryPipe,
     NotFoundComponent,
-
   ]
 })
 export class SharedModule { }
