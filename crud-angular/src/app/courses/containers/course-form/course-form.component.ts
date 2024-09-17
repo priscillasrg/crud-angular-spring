@@ -67,7 +67,7 @@ export class CourseFormComponent implements OnInit {
     this.onCancel();
   }
 
-  private onError(error: any) {
+  public onError(error: any) {
     this.snackBar.open(`Error submitting form: ${error.message}`, '', {
       duration: 3000
     });
